@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {#    导入#}
+    {% block extcss %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/swiper.css') }}">
+</head>
+<body>
+
+{#学校logo#}
+<div class="header cleafix">
+    <a class="logo" href="">
+        <img src="/static/img/jxlg_logo.png">
+    </a>
+</div>
+
+
+{#导航栏#}
+<div class="nav">
+    <div class="innav">
+        <ul class="cleafix">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">学院简介</a></li>
+            <li><a href="#">机构设置</a></li>
+            <li><a href="#">应科新闻</a></li>
+            <li><a href="#">招生网</a></li>
+            <li><a href="#">就业网</a></li>
+            <li><a href="#">教务信息</a></li>
+            <li><a href="#">学工在线</a></li>
+            <li><a href="#">对外合作</a></li>
+            <li><a href="#">信息公开</a></li>
+            {% if username %}
+                <li>
+                    <a href="#">{{ username }}</a>&nbsp;
+                    <a href="#">退出</a>
+                </li>
+            {% else %}
+                <li><a href="#">登录</a></li>
+            {% endif %}
+            <li><a href="#">注册</a></li>
+        </ul>
+    </div>
+</div>
+
+{#主体内容#}
+{% block content %}
+{% endblock %}
+
+
+{#底部内容#}
+
+
+</body>
+
+
+{#导入js#}
+{% block extjs %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/base/bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='js/base/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/base/swiper.js') }}"></script>
+<script src="{{ url_for('static', filename='js/base/base.js') }}"></script>
+</html>
